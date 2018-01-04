@@ -3,8 +3,13 @@ import babelrc from "babelrc-rollup"
 
 let pkg = require("./package.json")
 let external = Object.keys(pkg.dependencies)
-
-let plugins = [babel(babelrc())]
+let plugins = [
+  babel(
+    babelrc({
+      presets: [["es2015", { modules: false }]],
+    })
+  ),
+]
 
 export default {
   entry: "./index.js",
